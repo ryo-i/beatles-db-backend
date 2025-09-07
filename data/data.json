@@ -1,0 +1,26 @@
+{
+    "head": {
+        "url": "https://beatles-db.vercel.app/"
+    },
+    "header": {
+        "title":"ビートルズDB",
+        "text": "ビートルズが結成から解散までにリリースした楽曲（1961〜1970年）のデータベース"
+    },
+    "main": {
+        "title":"メインページです",
+        "text": "メインページのテキストです。テキストですったらテキストです。"
+    },
+    "inner": [
+        {
+        "title": "CSS（文字色）",
+        "text": "CSSでタイトルの文字色変更。"
+        },
+        {
+        "title": "JS（文字列）",
+        "text": "JSでテキストの文字列追加「<span class='hello'></span>」"
+        }
+    ],
+    "footer": {
+        "text": "©️ イイダリョウ"
+    }
+}
