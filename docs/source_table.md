@@ -79,10 +79,11 @@ PostgreSQL等のデータベース設計・データ移行前の現状把握資�
 - `musicians`（ミュージシャン：id, name等）
 - `songwriters`（作詞作曲者：id, name等）
 - `artworks`（アートワーク担当者：id, name等）
+- `roles`（役割名：id, name等。「guitar」「drums」「lead vocals」などのパート名・役割名を管理）
 
-- `track_musicians`（中間：track_id, musician_id, role（パート名など））
+- `track_musicians`（中間：track_id, musician_id, role_id）
 - `track_songwriters`（中間：track_id, songwriter_id, role（作詞/作曲など））
-- `release_artworks`（中間：release_id, artwork_id, role（photography等））
+- `release_artworks`（中間：release_id, artwork_id, role_id（photography等））
 
 - 必要に応じて：`producers`, `engineers` も同様に分割＆中間テーブル
 - 備考や情報源は`tracks`または`releases`テーブルのカラムとして管理（必要なら分割可）
@@ -93,7 +94,7 @@ PostgreSQL等のデータベース設計・データ移行前の現状把握資�
 
 - `/` 区切り：一つのセルに複数データが入っている場合に使用。DB化時は中間テーブルや配列型、JSON型カラムなどで一対多の構造に分割することを推奨。
 - `: ` 区切り：`musician`や`artwork`では「担当者: 役割」の形。DB化時は「担当者」と「役割」を分離して格納することを推奨。
-- `,` 区切り：`john`などパート名の羅列。必要に応じて分割し、役割ごとに持たせることも可能。
+- `,` 区切り：`john`などパート名の羅列、または1人が複数の役割を持つ場合の担当パート。必要に応じて分割し、1レコード1役割とすることを推奨。
 
 ---
 
